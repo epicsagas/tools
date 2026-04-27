@@ -13,21 +13,21 @@ Go to the [Releases page](https://github.com/epicsagas/tools/releases), find the
 | Your computer | Download this file |
 |---|---|
 | **Windows** (most PCs) | `claudy-<ver>-x86_64-pc-windows-msvc.zip` |
-| **macOS** (Apple Silicon: M1/M2/M3/M4) | `claudy-<ver>-aarch64-apple-darwin.tar.gz` |
-| **macOS** (Intel) | `claudy-<ver>-x86_64-apple-darwin.tar.gz` |
-| **Linux** (Ubuntu/Debian, 64-bit) | `claudy-<ver>-x86_64-unknown-linux-gnu.tar.gz` |
-| **Linux** (ARM) | `claudy-<ver>-aarch64-unknown-linux-gnu.tar.gz` |
+| **macOS** (Apple Silicon: M1/M2/M3/M4) | `claudy-<ver>-aarch64-apple-darwin.tar.xz` |
+| **macOS** (Intel) | `claudy-<ver>-x86_64-apple-darwin.tar.xz` |
+| **Linux** (Ubuntu/Debian, 64-bit) | `claudy-<ver>-x86_64-unknown-linux-gnu.tar.xz` |
+| **Linux** (ARM) | `claudy-<ver>-aarch64-unknown-linux-gnu.tar.xz` |
 
 > Not sure which macOS you have? Click the Apple menu () → "About This Mac".
 > If it says "Apple M1" or later, choose `aarch64`. Otherwise choose `x86_64`.
 
 ### macOS
 
-1. Download `claudy-<ver>-aarch64-apple-darwin.tar.gz` (or `x86_64` for Intel Mac)
+1. Download `claudy-<ver>-aarch64-apple-darwin.tar.xz` (or `x86_64` for Intel Mac)
 2. Open Terminal and run:
    ```sh
    cd ~/Downloads
-   tar -xzf claudy-*-aarch64-apple-darwin.tar.gz
+   tar -xJf claudy-*-aarch64-apple-darwin.tar.xz
    ```
 3. Move the `claudy` binary to your PATH:
    ```sh
@@ -42,11 +42,11 @@ brew install claudy
 
 ### Linux
 
-1. Download `claudy-<ver>-x86_64-unknown-linux-gnu.tar.gz`
+1. Download `claudy-<ver>-x86_64-unknown-linux-gnu.tar.xz`
 2. Extract and install:
    ```sh
    cd ~/Downloads
-   tar -xzf claudy-*-x86_64-unknown-linux-gnu.tar.gz
+   tar -xJf claudy-*-x86_64-unknown-linux-gnu.tar.xz
    sudo mv claudy /usr/local/bin/
    ```
 
@@ -178,10 +178,10 @@ Key directories:
 
 | File | What it is |
 |---|---|
-| `claudy-<ver>-aarch64-apple-darwin.tar.gz` | macOS CLI binary (Apple Silicon) |
-| `claudy-<ver>-x86_64-apple-darwin.tar.gz` | macOS CLI binary (Intel) |
-| `claudy-<ver>-x86_64-unknown-linux-gnu.tar.gz` | Linux CLI binary (amd64) |
-| `claudy-<ver>-aarch64-unknown-linux-gnu.tar.gz` | Linux CLI binary (arm64) |
+| `claudy-<ver>-aarch64-apple-darwin.tar.xz` | macOS CLI binary (Apple Silicon) |
+| `claudy-<ver>-x86_64-apple-darwin.tar.xz` | macOS CLI binary (Intel) |
+| `claudy-<ver>-x86_64-unknown-linux-gnu.tar.xz` | Linux CLI binary (amd64) |
+| `claudy-<ver>-aarch64-unknown-linux-gnu.tar.xz` | Linux CLI binary (arm64) |
 | `claudy-<ver>-x86_64-pc-windows-msvc.zip` | Windows CLI binary (portable) |
 | `claudy-<ver>-x86_64-pc-windows-msvc.msi` | Windows MSI installer (enterprise) |
 | `claudy-installer.sh` | Shell installer (macOS/Linux) |

@@ -34,7 +34,7 @@ Download the archive for your platform from the [Releases](https://github.com/ep
 
 ```sh
 # Example: macOS arm64
-tar -xzf tdl_0.1.0_darwin_arm64.tar.gz
+tar -xzf tdl_0.1.0_darwin_arm64.tar.xz
 mv tdl /usr/local/bin/
 ```
 
