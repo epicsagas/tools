@@ -1,12 +1,17 @@
 # EpicSagas Tools
 
+[![GitHub Release](https://img.shields.io/github/v/release/epicsagas/tools?sort=semver)](https://github.com/epicsagas/tools/releases)
+[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/epicsagas/tools/total)](https://github.com/epicsagas/tools/releases)
+[![License](https://img.shields.io/github/license/epicsagas/tools)](LICENSE)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=flat&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/epicsaga)
+
 `epicsagas/tools` is the **public binary release repository** for CLI tools published by EpicSagas.
 
 This repository contains only release artifacts for end users, such as binaries, checksums, and installer files.
 
 ## Included Tools
 
-- [`tdl`](docs/tdl.md): TIDAL media downloader (CLI/TUI/GUI, macOS/Linux/Windows)
+- [`tdl`](docs/tdl.md): TIDAL media downloader (CLI/TUI/GUI, macOS/Linux/Windows) [![tdl release](https://img.shields.io/github/v/release/epicsagas/tdl?sort=semver)](https://github.com/epicsagas/tdl/releases)
 - [`claudy`](docs/claudy.md): Multi-provider launcher for Claude Code with user-defined config modes (macOS/Linux/Windows)
 
 ## Installation
