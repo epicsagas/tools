@@ -1,156 +1,164 @@
 # tdl
 
-Tidal music downloader written in Rust. Provides CLI, TUI, and GUI (Tauri) interfaces.
+Tidal music downloader for macOS, Windows, and Linux.
+Supports tracks, albums, playlists, mixes, and music videos.
 
-## Supported Platforms
+## Getting Started
 
-| OS | Architecture | Archive | Native Installer |
-|----|-------------|---------|-----------------|
-| macOS | `arm64` | `.tar.gz` | `.dmg` |
-| macOS | `amd64` | `.tar.gz` | `.dmg` |
-| Linux | `amd64` | `.tar.gz` | `.deb`, `.AppImage` |
-| Linux | `arm64` | `.tar.gz` | `.deb`, `.AppImage` |
-| Windows | `amd64` | `.zip` | `.msi`, `-setup.exe` |
+### Which file do I download?
 
-The archive and native installer contain the **same binary**. GUI is built in by default (`features = ["gui"]`). The archive is for PATH-based use (CLI/TUI/GUI all work); the native installer packages it as an OS app bundle.
+Go to the [Releases page](https://github.com/epicsagas/tools/releases), find the latest `tdl-v...` release, and download the file that matches your computer:
 
-## Features
+| Your computer | Download this file |
+|---|---|
+| **Windows** (most PCs) | `tdl_..._windows_amd64-setup.exe` |
+| **macOS** (Apple Silicon: M1/M2/M3/M4) | `tdl_..._darwin_arm64.app.tar.gz` |
+| **macOS** (Intel) | `tdl_..._darwin_amd64.app.tar.gz` |
+| **Linux** (Ubuntu/Debian, 64-bit) | `tdl_..._linux_amd64.deb` |
+| **Linux** (Ubuntu/Debian, ARM) | `tdl_..._linux_arm64.deb` |
 
-- OAuth device authorization and PKCE login (required for HiRes Lossless)
-- Download tracks, albums, playlists, mixes, and videos
-- AES-128-CTR file decryption
-- BTS JSON and MPEG-DASH (MPD) manifest parsing
-- Parallel segment downloading with retry and exponential backoff
-- FLAC/M4A metadata tagging (lofty)
-- ReplayGain tag support
-- Cover art embedding and standalone `cover.jpg`
-- Synced lyrics (`.lrc`) export and embedding
-- TS to MP4 conversion via FFmpeg
-- FLAC extraction from MP4 containers
-- M3U8 / M3U playlist file generation
-- Browse and download favorites (tracks, albums, artists, videos)
-- Three interfaces: CLI, TUI, and GUI (Tauri 2)
+> Not sure which macOS you have? Click the Apple menu () → "About This Mac".
+> If it says "Apple M1" or later, choose `arm64`. Otherwise choose `amd64`.
 
-## Requirements
+### Windows
 
-- Rust 1.80+ (build only)
-- FFmpeg (optional; required for video conversion and FLAC extraction)
-- A Tidal subscription
+1. Download `tdl_..._windows_amd64-setup.exe`
+2. Double-click the downloaded file
+3. Follow the installer steps
+4. Done! Open tdl from the Start menu or desktop shortcut
 
-## Installation
+Alternatively, download `tdl_..._windows_amd64.msi` for a silent/enterprise install:
+```
+msiexec /i tdl_0.1.0_windows_amd64.msi /quiet
+```
 
-### Homebrew (macOS/Linux)
+### macOS
 
+1. Download `tdl_..._darwin_arm64.app.tar.gz` (or `amd64` for Intel Mac)
+2. Open Terminal and run:
+   ```sh
+   cd ~/Downloads
+   tar -xzf tdl_*_darwin_arm64.app.tar.gz
+   ```
+3. Move `tdl.app` to your Applications folder
+4. Double-click `tdl.app` to launch
+
+Or install via Homebrew (if you have it):
 ```sh
 brew tap epicsagas/tap
 brew install tdl
 ```
 
-### Download from Releases
+### Linux
 
-1. Open the `epicsagas/tools` release page.
-2. Select the `tdl-v<version>` tag.
-3. Download the archive matching your OS/architecture.
-4. Verify checksum using `SHA256SUMS.txt`.
-5. Extract and place `tdl` in your `PATH`.
-
-### Windows (PowerShell)
-
-```powershell
-# Replace version as needed
-Invoke-WebRequest -Uri https://github.com/epicsagas/tools/releases/download/tdl-v0.1.0/tdl_0.1.0_windows_amd64.zip -OutFile tdl.zip
-Expand-Archive .\tdl.zip -DestinationPath .\tdl
+**Ubuntu / Debian:**
+```sh
+sudo dpkg -i tdl_*_linux_amd64.deb
 ```
 
-Or use the `.msi` installer for a GUI installation experience.
+**Other Linux (AppImage):**
+1. Download `tdl_..._linux_amd64.AppImage`
+2. Make it executable: `chmod +x tdl_*_linux_amd64.AppImage`
+3. Double-click or run `./tdl_*_linux_amd64.AppImage`
 
-## Quick Usage
+**Or via Homebrew:**
+```sh
+brew tap epicsagas/tap
+brew install tdl
+```
 
-### Login
+## First-Time Setup
+
+### 1. Login to Tidal
+
+Open a terminal (or the GUI settings) and run:
 
 ```sh
-tdl login           # OAuth device authorization (standard)
-tdl login --pkce    # PKCE flow (required for HiRes Lossless)
+tdl login
 ```
 
-### Download
+This opens a link in your browser. Sign in with your Tidal account and approve the connection.
+
+**For HiRes Lossless quality**, use the PKCE login instead:
+```sh
+tdl login --pkce
+```
+
+### 2. Download music
+
+Copy a Tidal URL from your browser or the Tidal app, then:
 
 ```sh
-tdl dl https://tidal.com/browse/track/12345
-tdl dl https://tidal.com/browse/album/67890
-tdl dl --list urls.txt
+tdl dl https://tidal.com/browse/album/12345
 ```
 
-### Favorites
+Or paste it into the GUI download bar.
 
-```sh
-tdl fav tracks
-tdl fav albums
-tdl fav artists
-tdl fav videos
-```
+### 3. Where are my files?
 
-### Interfaces
+Downloaded files are saved to `~/download` by default. You can change this in Settings.
 
-```sh
-tdl tui     # terminal UI
-tdl gui     # desktop GUI (Tauri)
-tdl         # defaults to GUI
-```
+## Interfaces
+
+tdl has three ways to use it:
+
+| Interface | How to open | Best for |
+|---|---|---|
+| **GUI** (desktop app) | Double-click the app, or run `tdl` | Most users |
+| **TUI** (terminal UI) | Run `tdl tui` | Terminal users who prefer a visual layout |
+| **CLI** (command line) | Run `tdl dl <url>` | Automation and scripting |
+
+## Features
+
+- Download tracks, albums, playlists, mixes, and music videos
+- FLAC lossless and HiRes Lossless quality (requires PKCE login)
+- Automatic metadata tagging (artist, album, track number, etc.)
+- Cover art embedding and standalone `cover.jpg`
+- Synced lyrics (`.lrc`) download
+- M3U8 playlist file generation
+- Parallel downloads with automatic retry
+- Browse and download your Tidal favorites
+
+## Requirements
+
+- A Tidal subscription
+- FFmpeg (optional; only needed for video downloads and FLAC extraction)
 
 ## Configuration
 
 Settings file: `~/.tdl/settings.json`
 
+You can also edit settings in the GUI or by running `tdl cfg`.
+
 Key options:
 
-- Download base path and output path templates
-- Audio/video quality (`hi_res_lossless` requires PKCE login)
-- Concurrency and retry behavior
-- Metadata, cover art, and lyrics options
-- Playlist file format (`m3u8` default, `m3u` for legacy DAP compatibility)
-- FFmpeg path and conversion/extraction toggles
+| Setting | Description |
+|---|---|
+| Download path | Where files are saved (default: `~/download`) |
+| Audio quality | `low_96k` / `low_320k` / `high_lossless` / `hi_res_lossless` |
+| Video quality | `p360` / `p480` / `p720` / `p1080` |
+| Cover art | Embed in audio files + save `cover.jpg` per album |
+| Lyrics | Embed synced lyrics and/or save `.lrc` files |
+| Playlist format | `m3u8` (default, UTF-8) or `m3u` (for older DAP devices) |
 
-## Release Assets
+## All Release Assets
 
-Artifacts per release:
-
-| File | Type | Notes |
-|------|------|-------|
-| `tdl_<ver>_darwin_arm64.tar.gz` | Archive | macOS arm64 — extract and add to PATH |
-| `tdl_<ver>_darwin_amd64.tar.gz` | Archive | macOS amd64 — extract and add to PATH |
-| `tdl_<ver>_linux_arm64.tar.gz` | Archive | Linux arm64 — extract and add to PATH |
-| `tdl_<ver>_linux_amd64.tar.gz` | Archive | Linux amd64 — extract and add to PATH |
-| `tdl_<ver>_windows_amd64.zip` | Archive | Windows amd64 — extract and add to PATH |
-| `tdl_<ver>_darwin_arm64.dmg` | Installer | macOS arm64 app bundle |
-| `tdl_<ver>_darwin_amd64.dmg` | Installer | macOS amd64 app bundle |
-| `tdl_<ver>_linux_amd64.deb` | Installer | Debian/Ubuntu amd64 |
-| `tdl_<ver>_linux_arm64.deb` | Installer | Debian/Ubuntu arm64 |
-| `tdl_<ver>_linux_amd64.AppImage` | Installer | Linux amd64 portable |
-| `tdl_<ver>_linux_arm64.AppImage` | Installer | Linux arm64 portable |
-| `tdl_<ver>_windows_amd64.msi` | Installer | Windows MSI |
-| `tdl_<ver>_windows_amd64-setup.exe` | Installer | Windows NSIS |
-| `SHA256SUMS.txt` | Checksum | SHA256 for all archives |
-
-## CI/CD Pipeline
-
-Source repo: `epicsagas/tdl` (private)
-
-Pipeline: `.github/workflows/release-public.yml`
-
-- Trigger: push of `v*` or `tdl-v*` tag, or manual `workflow_dispatch`
-- Builds via `cargo tauri build` (one binary with GUI built in; also produces OS installer bundles)
-- Packages the binary as an archive (`.tar.gz` / `.zip`) and as native OS installers per target
-- Publishes all artifacts to `epicsagas/tools` with `tdl-v<ver>` tag
-- Updates `epicsagas/homebrew-tap` Formula/tdl.rb with new version and SHA256
-
-Required secrets and variables in source repo:
-
-| Name | Type | Description |
-|------|------|-------------|
-| `PUBLIC_RELEASE_TOKEN` | Secret | PAT with write access to `epicsagas/tools` |
-| `HOMEBREW_TAP_TOKEN` | Secret | PAT with write access to `epicsagas/homebrew-tap` |
-| `PUBLIC_RELEASE_REPO` | Variable | `epicsagas/tools` |
+| File | What it is |
+|---|---|
+| `tdl_<ver>_windows_amd64-setup.exe` | Windows installer (recommended) |
+| `tdl_<ver>_windows_amd64.msi` | Windows installer (enterprise/silent) |
+| `tdl_<ver>_windows_amd64.zip` | Windows portable (extract and run) |
+| `tdl_<ver>_darwin_arm64.app.tar.gz` | macOS app (Apple Silicon) |
+| `tdl_<ver>_darwin_amd64.app.tar.gz` | macOS app (Intel) |
+| `tdl_<ver>_darwin_arm64.tar.gz` | macOS CLI binary (Apple Silicon) |
+| `tdl_<ver>_darwin_amd64.tar.gz` | macOS CLI binary (Intel) |
+| `tdl_<ver>_linux_amd64.deb` | Linux installer (Debian/Ubuntu) |
+| `tdl_<ver>_linux_arm64.deb` | Linux installer (Debian/Ubuntu ARM) |
+| `tdl_<ver>_linux_amd64.AppImage` | Linux portable (any distro) |
+| `tdl_<ver>_linux_arm64.AppImage` | Linux portable (ARM) |
+| `tdl_<ver>_linux_amd64.tar.gz` | Linux CLI binary |
+| `tdl_<ver>_linux_arm64.tar.gz` | Linux CLI binary (ARM) |
+| `SHA256SUMS.txt` | Checksums for verifying downloads |
 
 ## License
 

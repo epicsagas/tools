@@ -11,7 +11,7 @@ This repository contains only release artifacts for end users, such as binaries,
 
 ## Included Tools
 
-- [`tdl`](docs/tdl.md): TIDAL media downloader (CLI/TUI/GUI, macOS/Linux/Windows) [![tdl release](https://img.shields.io/github/v/release/epicsagas/tdl?sort=semver)](https://github.com/epicsagas/tdl/releases)
+- [`tdl`](docs/tdl.md): TIDAL media downloader (CLI/TUI/GUI, macOS/Linux/Windows) — [Install Guide](docs/tdl.md#getting-started)
 - [`claudy`](docs/claudy.md): Multi-provider launcher for Claude Code with user-defined config modes (macOS/Linux/Windows)
 
 ## Installation
