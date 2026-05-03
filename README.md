@@ -16,6 +16,20 @@ This repository contains only release artifacts for end users, such as binaries,
 
 ## Installation
 
+### Quick Install (macOS / Linux)
+
+```sh
+curl --proto '=https' --tlsv1.2 -LsSf https://github.com/epicsagas/tools/releases/latest/download/tdl-installer.sh | sh
+curl --proto '=https' --tlsv1.2 -LsSf https://github.com/epicsagas/tools/releases/latest/download/claudy-installer.sh | sh
+```
+
+### Quick Install (Windows)
+
+```powershell
+irm https://github.com/epicsagas/tools/releases/latest/download/tdl-installer.ps1 | iex
+irm https://github.com/epicsagas/tools/releases/latest/download/claudy-installer.ps1 | iex
+```
+
 ### Homebrew (macOS / Linux)
 
 ```sh
@@ -24,18 +38,14 @@ brew install tdl
 brew install claudy
 ```
 
-### Windows
-
-Download the `.msi` or `-setup.exe` installer from the [Releases](https://github.com/epicsagas/tools/releases) page.
-
 ### Manual
 
 Download the archive for your platform from the [Releases](https://github.com/epicsagas/tools/releases) page, extract it, and place the binary in your `PATH`.
 
 ```sh
 # Example: macOS arm64
-tar -xzf tdl_0.1.0_darwin_arm64.tar.xz
-mv tdl /usr/local/bin/
+tar -xJf tdl-aarch64-apple-darwin.tar.xz
+sudo mv tdl /usr/local/bin/
 ```
 
 ## Governance
