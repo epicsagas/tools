@@ -19,15 +19,15 @@ This repository contains only release artifacts for end users, such as binaries,
 ### Quick Install (macOS / Linux)
 
 ```sh
-curl --proto '=https' --tlsv1.2 -LsSf https://github.com/epicsagas/tools/releases/latest/download/tdl-installer.sh | sh
-curl --proto '=https' --tlsv1.2 -LsSf https://github.com/epicsagas/tools/releases/latest/download/claudy-installer.sh | sh
+curl --proto '=https' --tlsv1.2 -LsSf https://github.com/epicsagas/tools/releases/download/installers/tdl-installer.sh | sh
+curl --proto '=https' --tlsv1.2 -LsSf https://github.com/epicsagas/tools/releases/download/installers/claudy-installer.sh | sh
 ```
 
 ### Quick Install (Windows)
 
 ```powershell
-irm https://github.com/epicsagas/tools/releases/latest/download/tdl-installer.ps1 | iex
-irm https://github.com/epicsagas/tools/releases/latest/download/claudy-installer.ps1 | iex
+irm https://github.com/epicsagas/tools/releases/download/installers/tdl-installer.ps1 | iex
+irm https://github.com/epicsagas/tools/releases/download/installers/claudy-installer.ps1 | iex
 ```
 
 ### Homebrew (macOS / Linux)

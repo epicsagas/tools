@@ -10,12 +10,12 @@ Supports tracks, albums, playlists, mixes, and music videos.
 **macOS / Linux:**
 ```sh
 curl --proto '=https' --tlsv1.2 -LsSf \
-  https://github.com/epicsagas/tools/releases/latest/download/tdl-installer.sh | sh
+  https://github.com/epicsagas/tools/releases/download/installers/tdl-installer.sh | sh
 ```
 
 **Windows (PowerShell):**
 ```powershell
-irm https://github.com/epicsagas/tools/releases/latest/download/tdl-installer.ps1 | iex
+irm https://github.com/epicsagas/tools/releases/download/installers/tdl-installer.ps1 | iex
 ```
 
 ### Homebrew (macOS / Linux)

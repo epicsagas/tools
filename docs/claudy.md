@@ -11,12 +11,12 @@ Manages multiple Claude Code provider profiles and modes with a unified CLI.
 **macOS / Linux:**
 ```sh
 curl --proto '=https' --tlsv1.2 -LsSf \
-  https://github.com/epicsagas/tools/releases/latest/download/claudy-installer.sh | sh
+  https://github.com/epicsagas/tools/releases/download/installers/claudy-installer.sh | sh
 ```
 
 **Windows (PowerShell):**
 ```powershell
-irm https://github.com/epicsagas/tools/releases/latest/download/claudy-installer.ps1 | iex
+irm https://github.com/epicsagas/tools/releases/download/installers/claudy-installer.ps1 | iex
 ```
 
 ### Homebrew (macOS / Linux)
