@@ -147,7 +147,8 @@ Key options:
 | `tdl-x86_64-unknown-linux-gnu.tar.xz` | Linux CLI binary (amd64) |
 | `tdl-x86_64-pc-windows-msvc.zip` | Windows CLI binary (portable) |
 | `tdl-x86_64-pc-windows-msvc.msi` | Windows MSI installer (enterprise) |
-| `sha256.sum` | Checksums for verifying downloads |
+| `SHA256SUMS.txt` | Checksums for verifying downloads |
+| `sha256.sum` | Per-file checksums (`.sha256` sidecar) |
 
 ## License
 
