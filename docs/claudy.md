@@ -6,7 +6,27 @@ Manages multiple Claude Code provider profiles and modes with a unified CLI.
 
 ## Getting Started
 
-### Download
+### Quick Install (Recommended)
+
+**macOS / Linux:**
+```sh
+curl --proto '=https' --tlsv1.2 -LsSf \
+  https://github.com/epicsagas/tools/releases/download/installers/claudy-installer.sh | sh
+```
+
+**Windows (PowerShell):**
+```powershell
+irm https://github.com/epicsagas/tools/releases/download/installers/claudy-installer.ps1 | iex
+```
+
+### Homebrew (macOS / Linux)
+
+```sh
+brew tap epicsagas/tap
+brew install claudy
+```
+
+### Manual Download
 
 Since claudy is open source, all releases are available on GitHub:
 
@@ -16,75 +36,34 @@ Since claudy is open source, all releases are available on GitHub:
 
 | Your computer | Download this file |
 |---|---|
-| **Windows** (most PCs) | `claudy-<ver>-x86_64-pc-windows-msvc.zip` |
-| **macOS** (Apple Silicon: M1/M2/M3/M4) | `claudy-<ver>-aarch64-apple-darwin.tar.xz` |
-| **macOS** (Intel) | `claudy-<ver>-x86_64-apple-darwin.tar.xz` |
-| **Linux** (Ubuntu/Debian, 64-bit) | `claudy-<ver>-x86_64-unknown-linux-gnu.tar.xz` |
-| **Linux** (ARM) | `claudy-<ver>-aarch64-unknown-linux-gnu.tar.xz` |
+| **Windows** (most PCs) | `claudy-x86_64-pc-windows-msvc.zip` |
+| **macOS** (Apple Silicon: M1/M2/M3/M4) | `claudy-aarch64-apple-darwin.tar.xz` |
+| **macOS** (Intel) | `claudy-x86_64-apple-darwin.tar.xz` |
+| **Linux** (Ubuntu/Debian, 64-bit) | `claudy-x86_64-unknown-linux-gnu.tar.xz` |
+| **Linux** (ARM) | `claudy-aarch64-unknown-linux-gnu.tar.xz` |
 
 > Not sure which macOS you have? Click the Apple menu () → "About This Mac".
 > If it says "Apple M1" or later, choose `aarch64`. Otherwise choose `x86_64`.
 
-### macOS
+#### macOS / Linux
 
-1. Go to [claudy Releases](https://github.com/epicsagas/tools/releases?q=claudy)
-2. Download `claudy-<ver>-aarch64-apple-darwin.tar.xz` (or `x86_64` for Intel Mac)
-2. Open Terminal and run:
-   ```sh
-   cd ~/Downloads
-   tar -xJf claudy-*-aarch64-apple-darwin.tar.xz
-   ```
-3. Move the `claudy` binary to your PATH:
-   ```sh
-   sudo mv claudy /usr/local/bin/
-   ```
-
-Or install via Homebrew (recommended):
 ```sh
-brew tap epicsagas/tap
-brew install claudy
+cd ~/Downloads
+tar -xJf claudy-*-aarch64-apple-darwin.tar.xz   # macOS Apple Silicon
+# or
+tar -xJf claudy-*-x86_64-unknown-linux-gnu.tar.xz  # Linux x64
+sudo mv claudy /usr/local/bin/
 ```
 
-### Linux
+#### Windows
 
-1. Go to [claudy Releases](https://github.com/epicsagas/tools/releases?q=claudy)
-2. Download `claudy-<ver>-x86_64-unknown-linux-gnu.tar.xz`
-2. Extract and install:
-   ```sh
-   cd ~/Downloads
-   tar -xJf claudy-*-x86_64-unknown-linux-gnu.tar.xz
-   sudo mv claudy /usr/local/bin/
-   ```
-
-Or via Homebrew:
-```sh
-brew tap epicsagas/tap
-brew install claudy
-```
-
-### Windows
-
-1. Go to [claudy Releases](https://github.com/epicsagas/tools/releases?q=claudy)
-2. Download `claudy-<ver>-x86_64-pc-windows-msvc.zip`
+1. Download `claudy-x86_64-pc-windows-msvc.zip`
 2. Extract the zip file
 3. Move `claudy.exe` to a folder in your PATH
 
 For silent/enterprise install, use the MSI installer:
 ```powershell
-msiexec /i claudy-0.1.0-x86_64-pc-windows-msvc.msi /quiet
-```
-
-### Quick Install (Shell Script)
-
-**macOS / Linux:**
-```sh
-curl --proto '=https' --tlsv1.2 -LsSf \
-  https://github.com/epicsagas/tools/releases/latest/download/claudy-installer.sh | sh
-```
-
-**Windows (PowerShell):**
-```powershell
-irm https://github.com/epicsagas/tools/releases/latest/download/claudy-installer.ps1 | iex
+msiexec /i claudy-0.2.0-x86_64-pc-windows-msvc.msi /quiet
 ```
 
 ## First-Time Setup
@@ -185,16 +164,17 @@ Key directories:
 
 | File | What it is |
 |---|---|
-| `claudy-<ver>-aarch64-apple-darwin.tar.xz` | macOS CLI binary (Apple Silicon) |
-| `claudy-<ver>-x86_64-apple-darwin.tar.xz` | macOS CLI binary (Intel) |
-| `claudy-<ver>-x86_64-unknown-linux-gnu.tar.xz` | Linux CLI binary (amd64) |
-| `claudy-<ver>-aarch64-unknown-linux-gnu.tar.xz` | Linux CLI binary (arm64) |
-| `claudy-<ver>-x86_64-pc-windows-msvc.zip` | Windows CLI binary (portable) |
-| `claudy-<ver>-x86_64-pc-windows-msvc.msi` | Windows MSI installer (enterprise) |
+| `claudy-aarch64-apple-darwin.tar.xz` | macOS CLI binary (Apple Silicon) |
+| `claudy-x86_64-apple-darwin.tar.xz` | macOS CLI binary (Intel) |
+| `claudy-x86_64-unknown-linux-gnu.tar.xz` | Linux CLI binary (amd64) |
+| `claudy-aarch64-unknown-linux-gnu.tar.xz` | Linux CLI binary (arm64) |
+| `claudy-x86_64-pc-windows-msvc.zip` | Windows CLI binary (portable) |
+| `claudy-x86_64-pc-windows-msvc.msi` | Windows MSI installer (enterprise) |
 | `claudy-installer.sh` | Shell installer (macOS/Linux) |
 | `claudy-installer.ps1` | PowerShell installer (Windows) |
 | `claudy.rb` | Homebrew formula |
 | `SHA256SUMS.txt` | Checksums for verifying downloads |
+| `sha256.sum` | Per-file checksums (`.sha256` sidecar) |
 
 ## CI/CD Pipeline
 

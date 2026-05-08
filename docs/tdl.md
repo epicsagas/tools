@@ -5,7 +5,27 @@ Supports tracks, albums, playlists, mixes, and music videos.
 
 ## Getting Started
 
-### Download
+### Quick Install (Recommended)
+
+**macOS / Linux:**
+```sh
+curl --proto '=https' --tlsv1.2 -LsSf \
+  https://github.com/epicsagas/tools/releases/download/installers/tdl-installer.sh | sh
+```
+
+**Windows (PowerShell):**
+```powershell
+irm https://github.com/epicsagas/tools/releases/download/installers/tdl-installer.ps1 | iex
+```
+
+### Homebrew (macOS / Linux)
+
+```sh
+brew tap epicsagas/tap
+brew install tdl
+```
+
+### Manual Download
 
 Since tdl is open source, all releases are available on GitHub:
 
@@ -15,63 +35,42 @@ Since tdl is open source, all releases are available on GitHub:
 
 | Your computer | Download this file |
 |---|---|
-| **Windows** (most PCs) | `tdl_..._windows_amd64-setup.exe` |
-| **macOS** (Apple Silicon: M1/M2/M3/M4) | `tdl_..._darwin_arm64.app.tar.gz` |
-| **macOS** (Intel) | `tdl_..._darwin_amd64.app.tar.gz` |
-| **Linux** (Ubuntu/Debian, 64-bit) | `tdl_..._linux_amd64.deb` |
-| **Linux** (Ubuntu/Debian, ARM) | `tdl_..._linux_arm64.deb` |
+| **Windows** (most PCs) | `tdl-x86_64-pc-windows-msvc.zip` |
+| **macOS** (Apple Silicon: M1/M2/M3/M4) | `tdl-aarch64-apple-darwin.tar.xz` |
+| **macOS** (Intel) | `tdl-x86_64-apple-darwin.tar.xz` |
+| **Linux** (Ubuntu/Debian, 64-bit) | `tdl-x86_64-unknown-linux-gnu.tar.xz` |
+| **Linux** (ARM) | `tdl-aarch64-unknown-linux-gnu.tar.xz` |
 
 > Not sure which macOS you have? Click the Apple menu () → "About This Mac".
-> If it says "Apple M1" or later, choose `arm64`. Otherwise choose `amd64`.
+> If it says "Apple M1" or later, choose `aarch64`. Otherwise choose `x86_64`.
 
-### Windows
+#### macOS / Linux
 
-1. Go to [tdl Releases](https://github.com/epicsagas/tools/releases?q=tdl)
-2. Download `tdl_..._windows_amd64-setup.exe`
-2. Double-click the downloaded file
-3. Follow the installer steps
-4. Done! Open tdl from the Start menu or desktop shortcut
-
-Alternatively, download `tdl_..._windows_amd64.msi` for a silent/enterprise install:
-```
-msiexec /i tdl_0.1.0_windows_amd64.msi /quiet
-```
-
-### macOS
-
-1. Go to [tdl Releases](https://github.com/epicsagas/tools/releases?q=tdl)
-2. Download `tdl_..._darwin_arm64.app.tar.gz` (or `amd64` for Intel Mac)
-2. Open Terminal and run:
-   ```sh
-   cd ~/Downloads
-   tar -xzf tdl_*_darwin_arm64.app.tar.gz
-   ```
-3. Move `tdl.app` to your Applications folder
-4. Double-click `tdl.app` to launch
-
-Or install via Homebrew (if you have it):
 ```sh
-brew tap epicsagas/tap
-brew install tdl
+cd ~/Downloads
+tar -xJf tdl-*-aarch64-apple-darwin.tar.xz   # macOS Apple Silicon
+# or
+tar -xJf tdl-*-x86_64-unknown-linux-gnu.tar.xz  # Linux x64
+sudo mv tdl /usr/local/bin/
 ```
 
-### Linux
+#### Windows
 
-**Ubuntu / Debian:**
-```sh
-sudo dpkg -i tdl_*_linux_amd64.deb
+1. Download `tdl-x86_64-pc-windows-msvc.zip`
+2. Extract the zip file
+3. Move `tdl.exe` to a folder in your PATH
+
+For silent/enterprise install, use the MSI installer:
+```powershell
+msiexec /i tdl-0.2.1-x86_64-pc-windows-msvc.msi /quiet
 ```
 
 **Other Linux (AppImage):**
-1. Go to [tdl Releases](https://github.com/epicsagas/tools/releases?q=tdl)
-2. Download `tdl_..._linux_amd64.AppImage`
-2. Make it executable: `chmod +x tdl_*_linux_amd64.AppImage`
-3. Double-click or run `./tdl_*_linux_amd64.AppImage`
-
-**Or via Homebrew:**
 ```sh
-brew tap epicsagas/tap
-brew install tdl
+cd ~/Downloads
+wget https://github.com/epicsagas/tools/releases/download/tdl-v0.2.1/tdl-x86_64-linux-gnu.AppImage
+chmod +x tdl-x86_64-linux-gnu.AppImage
+./tdl-x86_64-linux-gnu.AppImage
 ```
 
 ## First-Time Setup
@@ -152,20 +151,16 @@ Key options:
 
 | File | What it is |
 |---|---|
-| `tdl_<ver>_windows_amd64-setup.exe` | Windows installer (recommended) |
-| `tdl_<ver>_windows_amd64.msi` | Windows installer (enterprise/silent) |
-| `tdl_<ver>_windows_amd64.zip` | Windows portable (extract and run) |
-| `tdl_<ver>_darwin_arm64.app.tar.gz` | macOS app (Apple Silicon) |
-| `tdl_<ver>_darwin_amd64.app.tar.gz` | macOS app (Intel) |
-| `tdl_<ver>_darwin_arm64.tar.gz` | macOS CLI binary (Apple Silicon) |
-| `tdl_<ver>_darwin_amd64.tar.gz` | macOS CLI binary (Intel) |
-| `tdl_<ver>_linux_amd64.deb` | Linux installer (Debian/Ubuntu) |
-| `tdl_<ver>_linux_arm64.deb` | Linux installer (Debian/Ubuntu ARM) |
-| `tdl_<ver>_linux_amd64.AppImage` | Linux portable (any distro) |
-| `tdl_<ver>_linux_arm64.AppImage` | Linux portable (ARM) |
-| `tdl_<ver>_linux_amd64.tar.gz` | Linux CLI binary |
-| `tdl_<ver>_linux_arm64.tar.gz` | Linux CLI binary (ARM) |
+| `tdl-installer.sh` | Shell installer (macOS/Linux) |
+| `tdl-installer.ps1` | PowerShell installer (Windows) |
+| `tdl-aarch64-apple-darwin.tar.xz` | macOS CLI binary (Apple Silicon) |
+| `tdl-x86_64-apple-darwin.tar.xz` | macOS CLI binary (Intel) |
+| `tdl-aarch64-unknown-linux-gnu.tar.xz` | Linux CLI binary (arm64) |
+| `tdl-x86_64-unknown-linux-gnu.tar.xz` | Linux CLI binary (amd64) |
+| `tdl-x86_64-pc-windows-msvc.zip` | Windows CLI binary (portable) |
+| `tdl-x86_64-pc-windows-msvc.msi` | Windows MSI installer (enterprise) |
 | `SHA256SUMS.txt` | Checksums for verifying downloads |
+| `sha256.sum` | Per-file checksums (`.sha256` sidecar) |
 
 ## Open Source
 
