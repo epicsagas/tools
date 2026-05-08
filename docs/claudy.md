@@ -6,9 +6,13 @@ Manages multiple Claude Code provider profiles and modes with a unified CLI.
 
 ## Getting Started
 
-### Which file do I download?
+### Download
 
-Go to the [Releases page](https://github.com/epicsagas/tools/releases), find the latest `claudy-v...` release, and download the file that matches your computer:
+Since claudy is open source, all releases are available on GitHub:
+
+1. Go to the [claudy Releases page](https://github.com/epicsagas/tools/releases?q=claudy)
+2. Find the latest release (look for `claudy-v...`)
+3. Download the file that matches your computer:
 
 | Your computer | Download this file |
 |---|---|
@@ -23,7 +27,8 @@ Go to the [Releases page](https://github.com/epicsagas/tools/releases), find the
 
 ### macOS
 
-1. Download `claudy-<ver>-aarch64-apple-darwin.tar.xz` (or `x86_64` for Intel Mac)
+1. Go to [claudy Releases](https://github.com/epicsagas/tools/releases?q=claudy)
+2. Download `claudy-<ver>-aarch64-apple-darwin.tar.xz` (or `x86_64` for Intel Mac)
 2. Open Terminal and run:
    ```sh
    cd ~/Downloads
@@ -42,7 +47,8 @@ brew install claudy
 
 ### Linux
 
-1. Download `claudy-<ver>-x86_64-unknown-linux-gnu.tar.xz`
+1. Go to [claudy Releases](https://github.com/epicsagas/tools/releases?q=claudy)
+2. Download `claudy-<ver>-x86_64-unknown-linux-gnu.tar.xz`
 2. Extract and install:
    ```sh
    cd ~/Downloads
@@ -58,7 +64,8 @@ brew install claudy
 
 ### Windows
 
-1. Download `claudy-<ver>-x86_64-pc-windows-msvc.zip`
+1. Go to [claudy Releases](https://github.com/epicsagas/tools/releases?q=claudy)
+2. Download `claudy-<ver>-x86_64-pc-windows-msvc.zip`
 2. Extract the zip file
 3. Move `claudy.exe` to a folder in your PATH
 
@@ -207,6 +214,16 @@ Required secrets and variables in source repo:
 | `PUBLIC_RELEASE_TOKEN` | Secret | PAT with write access to `epicsagas/tools` |
 | `HOMEBREW_TAP_TOKEN` | Secret | PAT with write access to `epicsagas/homebrew-tap` |
 | `PUBLIC_RELEASE_REPO` | Variable | `epicsagas/tools` |
+
+## Open Source
+
+claudy is open source and developed in the open. Source code and all releases are available on [GitHub](https://github.com/epicsagas/tools).
+
+### Contributing
+
+- Report bugs and request features on [GitHub Issues](https://github.com/epicsagas/tools/issues)
+- Source code: [epicsagas/tools](https://github.com/epicsagas/tools)
+- All releases are built from the source repository
 
 ## Related Docs
 

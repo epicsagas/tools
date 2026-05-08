@@ -5,9 +5,13 @@ Supports tracks, albums, playlists, mixes, and music videos.
 
 ## Getting Started
 
-### Which file do I download?
+### Download
 
-Go to the [Releases page](https://github.com/epicsagas/tools/releases), find the latest `tdl-v...` release, and download the file that matches your computer:
+Since tdl is open source, all releases are available on GitHub:
+
+1. Go to the [tdl Releases page](https://github.com/epicsagas/tools/releases?q=tdl)
+2. Find the latest release (look for `tdl-v...`)
+3. Download the file that matches your computer:
 
 | Your computer | Download this file |
 |---|---|
@@ -22,7 +26,8 @@ Go to the [Releases page](https://github.com/epicsagas/tools/releases), find the
 
 ### Windows
 
-1. Download `tdl_..._windows_amd64-setup.exe`
+1. Go to [tdl Releases](https://github.com/epicsagas/tools/releases?q=tdl)
+2. Download `tdl_..._windows_amd64-setup.exe`
 2. Double-click the downloaded file
 3. Follow the installer steps
 4. Done! Open tdl from the Start menu or desktop shortcut
@@ -34,7 +39,8 @@ msiexec /i tdl_0.1.0_windows_amd64.msi /quiet
 
 ### macOS
 
-1. Download `tdl_..._darwin_arm64.app.tar.gz` (or `amd64` for Intel Mac)
+1. Go to [tdl Releases](https://github.com/epicsagas/tools/releases?q=tdl)
+2. Download `tdl_..._darwin_arm64.app.tar.gz` (or `amd64` for Intel Mac)
 2. Open Terminal and run:
    ```sh
    cd ~/Downloads
@@ -57,7 +63,8 @@ sudo dpkg -i tdl_*_linux_amd64.deb
 ```
 
 **Other Linux (AppImage):**
-1. Download `tdl_..._linux_amd64.AppImage`
+1. Go to [tdl Releases](https://github.com/epicsagas/tools/releases?q=tdl)
+2. Download `tdl_..._linux_amd64.AppImage`
 2. Make it executable: `chmod +x tdl_*_linux_amd64.AppImage`
 3. Double-click or run `./tdl_*_linux_amd64.AppImage`
 
@@ -159,6 +166,16 @@ Key options:
 | `tdl_<ver>_linux_amd64.tar.gz` | Linux CLI binary |
 | `tdl_<ver>_linux_arm64.tar.gz` | Linux CLI binary (ARM) |
 | `SHA256SUMS.txt` | Checksums for verifying downloads |
+
+## Open Source
+
+tdl is open source and developed in the open. Source code and all releases are available on [GitHub](https://github.com/epicsagas/tools).
+
+### Contributing
+
+- Report bugs and request features on [GitHub Issues](https://github.com/epicsagas/tools/issues)
+- Source code: [epicsagas/tools](https://github.com/epicsagas/tools)
+- All releases are built from the source repository
 
 ## License
 

@@ -24,28 +24,48 @@ brew install tdl
 brew install claudy
 ```
 
-### Windows
-
-Download the `.msi` or `-setup.exe` installer from the [Releases](https://github.com/epicsagas/tools/releases) page.
-
 ### Manual
 
-Download the archive for your platform from the [Releases](https://github.com/epicsagas/tools/releases) page, extract it, and place the binary in your `PATH`.
+All releases are published as open source on GitHub. Download the binary for your platform from the [Releases page](https://github.com/epicsagas/tools/releases):
+
+1. Go to [Releases](https://github.com/epicsagas/tools/releases)
+2. Find the latest release for your tool (`tdl-v*` or `claudy-v*`)
+3. Download the file matching your OS and architecture
+4. Extract the archive and place the binary in your `PATH`
+
+#### Quick Links:
+- [tdl Releases](https://github.com/epicsagas/tools/releases?q=tdl)
+- [claudy Releases](https://github.com/epicsagas/tools/releases?q=claudy)
 
 ```sh
-# Example: macOS arm64
-tar -xzf tdl_0.1.0_darwin_arm64.tar.xz
+# Example: Extract macOS arm64 tdl binary
+tar -xzf tdl_0.1.0_darwin_arm64.app.tar.gz
 mv tdl /usr/local/bin/
+
+# Example: Extract Linux claudy binary
+tar -xJf claudy-0.1.0-x86_64-unknown-linux-gnu.tar.xz
+sudo mv claudy /usr/local/bin/
 ```
 
 ## Governance
 
 - [`docs/management-rules.md`](docs/management-rules.md): repository-wide release and tagging rules
 
+## Open Source
+
+This repository publishes open source CLI tools under the Apache-2.0 license. All source code and releases are available publicly.
+
+### Contributing
+
+- Report bugs and request features on [GitHub Issues](https://github.com/epicsagas/tools/issues)
+- Source code is available in this repository
+- Community contributions are welcome - please see individual tool docs for contribution guidelines
+
 ## Release Policy
 
 - This repository includes only binaries, checksums, and installer-related artifacts.
 - Issue reproduction and fixes are handled in each tool's source repository.
+- All releases are built from the source code in this repository.
 
 ## Quick Release Expectations
 
