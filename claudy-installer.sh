@@ -1,9 +1,9 @@
 #!/bin/sh
 set -eu
 
-REPO="epicsagas/tdl"
-BINARY="tdl"
-INSTALL_DIR="${TDL_INSTALL_DIR:-/usr/local/bin}"
+REPO="epicsagas/claudy"
+BINARY="claudy"
+INSTALL_DIR="${CLAUDY_INSTALL_DIR:-/usr/local/bin}"
 
 # Resolve OS
 case "$(uname -s)" in
@@ -39,14 +39,11 @@ fi
 LATEST_TAG=$(eval "$FETCH" "$API_URL" | grep '"tag_name":' | sed -E 's/.*"tag_name": *"([^"]+)".*/\1/')
 
 if [ -z "$LATEST_TAG" ]; then
-  echo "Failed to determine the latest tdl release." >&2
+  echo "Failed to determine the latest claudy release." >&2
   exit 1
 fi
 
 VERSION="${LATEST_TAG#v}"
-# Adjusted archive naming convention for the new repository structure if needed.
-# Usually it's tdl_v0.1.0_linux_amd64.tar.gz or tdl-v0.1.0-linux-amd64.tar.gz
-# Based on the old script it was ${BINARY}_${VERSION}_${os}_${arch}.tar.gz
 ARCHIVE="${BINARY}_${VERSION}_${os}_${arch}.tar.gz"
 BASE_URL="https://github.com/${REPO}/releases/download/${LATEST_TAG}"
 DOWNLOAD_URL="${BASE_URL}/${ARCHIVE}"
@@ -55,7 +52,7 @@ CHECKSUM_URL="${BASE_URL}/SHA256SUMS.txt"
 TMPDIR=$(mktemp -d)
 trap 'rm -rf "$TMPDIR"' EXIT
 
-echo "Downloading tdl ${VERSION} (${os}/${arch})..."
+echo "Downloading claudy ${VERSION} (${os}/${arch})..."
 eval "$FETCH" "$DOWNLOAD_URL" -o "$TMPDIR/$ARCHIVE"
 
 # Verify checksum when shasum/sha256sum is available
@@ -82,5 +79,5 @@ fi
 
 chmod +x "$INSTALL_PATH"
 
-echo "Installed tdl ${VERSION} → ${INSTALL_PATH}"
-echo "Run 'tdl --help' to get started."
+echo "Installed claudy ${VERSION} → ${INSTALL_PATH}"
+echo "Run 'claudy --help' to get started."

@@ -1,92 +1,38 @@
 # EpicSagas Tools
 
-[![GitHub Release](https://img.shields.io/github/v/release/epicsagas/tools?sort=semver)](https://github.com/epicsagas/tools/releases)
-[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/epicsagas/tools/total)](https://github.com/epicsagas/tools/releases)
-[![License](https://img.shields.io/github/license/epicsagas/tools)](LICENSE)
+This repository is a portal for the CLI tools published by **EpicSagas**. All tools are now hosted in their own dedicated repositories for better maintenance and visibility.
+
 [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=flat&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/epicsaga)
 
-`epicsagas/tools` is the **public binary release repository** for CLI tools published by EpicSagas.
+## 🛠 Included Tools
 
-This repository contains only release artifacts for end users, such as binaries, checksums, and installer files.
+### 1. tdl (Tidal Downloader)
+**tdl** is a cross-platform media downloader for Tidal, written in Rust. It supports CLI, TUI, and GUI interfaces and provides high-fidelity music downloads.
 
-## Included Tools
+- **Repository:** [epicsagas/tdl](https://github.com/epicsagas/tdl)
+- **Latest Releases:** [Releases](https://github.com/epicsagas/tdl/releases)
+- **Key Features:**
+  - High-fidelity downloads (up to HiRes Lossless)
+  - CLI, TUI, and GUI (Tauri) support
+  - Parallel segment fetching and automatic metadata tagging
+  - Cross-platform (Windows, macOS, Linux)
 
-- [`tdl`](docs/tdl.md): TIDAL media downloader (CLI/TUI/GUI, macOS/Linux/Windows) — [Install Guide](docs/tdl.md#getting-started)
-- [`claudy`](docs/claudy.md): Multi-provider launcher for Claude Code with user-defined config modes (macOS/Linux/Windows)
+### 2. claudy (Claude CLI Power Tool)
+**claudy** is a CLI toolkit for Claude Code that enables seamless switching between AI providers and manages isolated configuration profiles.
 
-## Installation
+- **Repository:** [epicsagas/claudy](https://github.com/epicsagas/claudy)
+- **Latest Releases:** [Releases](https://github.com/epicsagas/claudy/releases)
+- **Key Features:**
+  - Switch between Anthropic, OpenRouter, Ollama, and more
+  - Isolated "modes" for different project configurations
+  - MCP bridge and local agent delegation
+  - Token usage and cost tracking dashboard
 
-### Quick Install (macOS / Linux)
+---
 
-```sh
-curl --proto '=https' --tlsv1.2 -LsSf https://github.com/epicsagas/tools/releases/download/installers/tdl-installer.sh | sh
-curl --proto '=https' --tlsv1.2 -LsSf https://github.com/epicsagas/tools/releases/download/installers/claudy-installer.sh | sh
-```
+## ⚖️ Governance & License
 
-### Quick Install (Windows)
+All EpicSagas tools are published under the **Apache-2.0 License**.
 
-```powershell
-irm https://github.com/epicsagas/tools/releases/download/installers/tdl-installer.ps1 | iex
-irm https://github.com/epicsagas/tools/releases/download/installers/claudy-installer.ps1 | iex
-```
-
-### Homebrew (macOS / Linux)
-
-```sh
-brew tap epicsagas/tap
-brew install tdl
-brew install claudy
-```
-
-### Manual
-
-All releases are published as open source on GitHub. Download the binary for your platform from the [Releases page](https://github.com/epicsagas/tools/releases):
-
-1. Go to [Releases](https://github.com/epicsagas/tools/releases)
-2. Find the latest release for your tool (`tdl-v*` or `claudy-v*`)
-3. Download the file matching your OS and architecture
-4. Extract the archive and place the binary in your `PATH`
-
-#### Quick Links:
-- [tdl Releases](https://github.com/epicsagas/tools/releases?q=tdl)
-- [claudy Releases](https://github.com/epicsagas/tools/releases?q=claudy)
-
-```sh
-# Example: Extract macOS arm64 tdl binary
-tar -xJf tdl-aarch64-apple-darwin.tar.xz
-sudo mv tdl /usr/local/bin/
-
-# Example: Extract Linux claudy binary
-tar -xJf claudy-x86_64-unknown-linux-gnu.tar.xz
-sudo mv claudy /usr/local/bin/
-```
-
-## Governance
-
-- [`docs/management-rules.md`](docs/management-rules.md): repository-wide release and tagging rules
-
-## Open Source
-
-This repository publishes open source CLI tools under the Apache-2.0 license. All source code and releases are available publicly.
-
-### Contributing
-
-- Report bugs and request features on [GitHub Issues](https://github.com/epicsagas/tools/issues)
-- Source code is available in this repository
-- Community contributions are welcome - please see individual tool docs for contribution guidelines
-
-## Release Policy
-
-- This repository includes only binaries, checksums, and installer-related artifacts.
-- Issue reproduction and fixes are handled in each tool's source repository.
-- All releases are built from the source code in this repository.
-
-## Quick Release Expectations
-
-Every project published here should provide:
-
-- Target-specific artifacts for `darwin`, `linux`, and `windows`
-- Architecture-specific builds (`amd64` and `arm64` when supported)
-- A `SHA256SUMS.txt` file covering all uploaded assets
-- Clear install snippets in each project document under `docs/`
-
+- **License:** [LICENSE](LICENSE)
+- **Contributing:** Please visit the individual tool repositories to report bugs or submit pull requests.
